@@ -1,0 +1,26 @@
+{
+  "name": "auth-server",
+  "version": "1.0.0",
+  "description": "node server with jwt user auth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefaleon/auth-server.git"
+  },
+  "keywords": [
+    "API",
+    "Node",
+    "Express",
+    "Mongoose",
+    "JWT"
+  ],
+  "author": "stefaleon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefaleon/auth-server/issues"
+  },
+  "homepage": "https://github.com/stefaleon/auth-server#readme"
+}
