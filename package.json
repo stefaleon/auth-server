@@ -4,7 +4,8 @@
   "description": "node server with jwt user auth",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/stefaleon/auth-server/issues"
   },
-  "homepage": "https://github.com/stefaleon/auth-server#readme"
+  "homepage": "https://github.com/stefaleon/auth-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
 }
