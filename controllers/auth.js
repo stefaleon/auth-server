@@ -48,4 +48,28 @@ exports.postSignUp = (req, res, next) => {
     .catch(err => next(err));
 };
 
-exports.postLogIn = (req, res, next) => {};
+exports.postLogIn = (req, res, next) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email })
+    .then(user => {
+      if (!user) {
+        return res.status(400).json({ msg: "Invalid Credentials" });
+      }
+
+      bcrypt
+        .compare(password, user.password)
+        .then(isMatch => {
+          if (!isMatch) {
+            return res.status(400).json({ msg: "Invalid Credentials" });
+          }
+
+          const token = jwt.sign({ userId: user._id }, SECRET, {
+            expiresIn: "1h"
+          });
+          res.json(token);
+        })
+        .catch(err => next(err));
+    })
+    .catch(err => next(err));
+};
