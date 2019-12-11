@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const authRoutes = require("./routes/auth");
+const auth = require("./middleware/auth");
 
 require("./dbConnection");
 
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-app.get("/", (req, res) => res.json({ msg: "This is the Auth API" }));
+app.get("/", auth, (req, res) => res.json({ msg: "This is the Auth API" }));
 app.use(authRoutes);
 
 module.exports = app;

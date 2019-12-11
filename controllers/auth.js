@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 const private = require("../private/private");
 
-const SECRET = private.jwtSecret;
+const SECRET = process.env.SECRET || private.jwtSecret;
 
 exports.postSignUp = (req, res, next) => {
   const { email, password } = req.body;
